@@ -1,0 +1,31 @@
+<div>
+  <h1>Player Status - Game {{game}}</h1>
+  <a [routerLink]="['/status', 'game', 1]">Game 1</a>
+  <a [routerLink]="['/status', 'game', 2]">Game 2</a>
+  <a [routerLink]="['/status', 'game', 3]">Game 3</a>
+</div>
+
+<table>
+  <tr>
+    <th>Team Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let player of players">
+    <td>{{player.name}}</td>
+    <td *ngIf="game == 1">
+      <button (click)="play(player)" [ngClass]="{'playing': player.status1 == 'playing'}">Playing</button>
+      <button (click)="not(player)" [ngClass]="{'not-playing': player.status1 == 'notPlaying'}">Not Playing</button>
+      <button (click)="undecide(player)" [ngClass]="{'undecided': player.status1 == 'undecided'}">Undecided</button>
+    </td>
+    <td *ngIf="game == 2">
+      <button (click)="play(player)" [ngClass]="{'playing': player.status2 == 'playing'}">Playing</button>
+      <button (click)="not(player)" [ngClass]="{'not-playing': player.status2 == 'notPlaying'}">Not Playing</button>
+      <button (click)="undecide(player)" [ngClass]="{'undecided': player.status2 == 'undecided'}">Undecided</button>
+    </td>
+    <td *ngIf="game == 3">
+      <button (click)="play(player)" [ngClass]="{'playing': player.status3 == 'playing'}">Playing</button>
+      <button (click)="not(player)" [ngClass]="{'not-playing': player.status3 == 'notPlaying'}">Not Playing</button>
+      <button (click)="undecide(player)" [ngClass]="{'undecided': player.status3 == 'undecided'}">Undecided</button>
+    </td>
+  </tr>
+</table>

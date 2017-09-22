@@ -1,0 +1,13 @@
+<app-player-nav></app-player-nav>
+<table>
+  <tr>
+    <th>Team Name</th>
+    <th>Preferred Position</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let player of players">
+    <td>{{player.name}}</td>
+    <td>{{player.position}}</td>
+    <td><button (click)="delete(player)">Delete</button></td> <!-- delete function with given player as param  -->
+  </tr>
+</table>
